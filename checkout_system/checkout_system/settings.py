@@ -109,7 +109,7 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 # Update ALLOWED_HOSTS
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'backend']
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/
