@@ -28,7 +28,7 @@ Frontend:
 1. Clone this thing:
 ```bash
 git clone https://github.com/ayushtejas/Checkout-System.git
-cd checkout-system
+cd Checkout-System
 ```
 
 2. Start it up:
