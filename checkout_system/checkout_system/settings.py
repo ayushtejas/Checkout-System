@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-h9)sybslvev$d*cf-y54vr$0s12#vp)x-s*($14ifl@@($o5qk
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'backend']
 
 
 # Application definition
@@ -108,8 +108,29 @@ CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:3000",
 ]
 
-# Update ALLOWED_HOSTS
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '0.0.0.0', 'backend']
+CORS_ALLOW_CREDENTIALS = True
+
+# Add these if you're still having CORS issues
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
+
+CORS_ALLOW_HEADERS = [
+    'accept',
+    'accept-encoding',
+    'authorization',
+    'content-type',
+    'dnt',
+    'origin',
+    'user-agent',
+    'x-csrftoken',
+    'x-requested-with',
+]
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.1/topics/i18n/

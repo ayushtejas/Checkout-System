@@ -1,116 +1,64 @@
 # Checkout System
 
-Hey! This is a checkout system I built for fun. It handles product pricing, discounts, and all that e-commerce stuff. The UI is pretty clean and it works well on both desktop and mobile.
-
-## What it Does
-
-- Shows products in a nice grid layout
-- Updates cart prices in real-time
-- Handles those "buy 3 get 1 free" type deals
-- Works smoothly on phones and computers
-- Easy to deploy with Docker
+A simple yet powerful checkout system that helps you manage products and apply discounts. 
 
 ## Tech Stack
 
-Backend:
-- Django + REST framework
-- SQLite (can switch to Postgres if you want)
+We're using:
+- **Backend**: Django with Django REST Framework
+- **Frontend**: Next.js with TypeScript and Tailwind CSS
+- **Database**: SQLite (easy to set up and use)
 
-Frontend:
-- Next.js
-- TypeScript
-- Tailwind CSS
+## Quick Start with Docker
 
-## Quick Start
-
-### Docker Way (Recommended)
-
-1. Clone this thing:
+1. Clone this repo:
 ```bash
-git clone https://github.com/ayushtejas/Checkout-System.git
-cd Checkout-System
+git clone <repository-url>
+cd checkout-system
 ```
 
-2. Start it up:
+2. Start the application:
 ```bash
-docker compose up --build
+docker-compose up --build
 ```
 
-3. In another terminal, create a superuser(Optional):
+3. In a new terminal, initialize the database and create a superuser:
 ```bash
-docker compose exec backend python manage.py createsuperuser
-```
-Follow the prompts to create your admin account. You'll need:
-- Username
-- Email (optional)
-- Password (make it strong!)
-
-4. Add some sample data:
-```bash
-docker compose exec backend python manage.py populate_db
+docker-compose exec backend python manage.py migrate
+docker-compose exec backend python manage.py populate_db
+docker-compose exec backend python manage.py createsuperuser
 ```
 
-5. Open these in your browser:
-- http://localhost:3000 (frontend)
-- http://localhost:8000/admin (admin panel - use your superuser credentials)
+4. Open your browser:
+- Frontend: http://localhost:3000
+- Backend: http://localhost:8000
+- Admin Panel: http://localhost:8000/admin
 
-### Manual Setup
+## Database Setup
 
-#### Backend Stuff
+The `populate_db` command creates these sample products:
+- Product A: $50.00 (3 for $130.00)
+- Product B: $30.00 (2 for $45.00)
+- Product C: $20.00
+- Product D: $15.00
 
-1. Go to the backend folder:
-```bash
-cd checkout_system
-```
+## How It Works
 
-2. Set up Python stuff:
-```bash
-python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
-```
+### Products
+- Browse through available products
+- See prices and special offers
+- Add items to your cart with a single click
 
-3. Get the requirements:
-```bash
-pip install -r requirements.txt
-```
+### Cart Features
+- Add or remove products easily
+- Adjust quantities with + and - buttons
+- Type product codes (like "AABBC") to add multiple items
+- See your total update in real-time
+- Clear your cart with one click
 
-4. Set up the database:
-```bash
-python manage.py migrate
-```
+### Discounts
+- Special offers for buying in bulk
+- Automatic discount calculation
+- Clear display of how much you're saving
 
-5. Create a superuser(optional):
-```bash
-python manage.py createsuperuser
-```
-Follow the prompts to create your admin account. You'll need:
-- Username
-- Email (optional)
-- Password (make it strong!)
 
-6. Add sample data:
-```bash
-python manage.py populate_db
-```
-
-7. Run it:
-```bash
-python manage.py runserver
-```
-
-#### Frontend Stuff
-
-1. Go to the frontend folder:
-```bash
-cd frontend
-```
-
-2. Install stuff:
-```bash
-npm install
-```
-
-3. Start it:
-```bash
-npm run dev
-```
