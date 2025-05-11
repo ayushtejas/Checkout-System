@@ -12,7 +12,6 @@ logger = logging.getLogger(__name__)
 class CheckoutView(APIView):
     def post(self, request):
         try:
-            # Get items from request data and ensure it's a list
             items = request.data.get("items", [])
             if not isinstance(items, list):
                 return Response(
@@ -20,17 +19,14 @@ class CheckoutView(APIView):
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
-            # Count items
             item_counts = Counter(items)
             total_price = 0
 
-            # Process each item
             for code, count in item_counts.items():
                 try:
                     product = Product.objects.get(code=code)
-                    discounts = product.discounts.order_by('-quantity')  # max quantity first
+                    discounts = product.discounts.order_by('-quantity')
 
-                    # Apply discounts
                     remaining_count = count
                     for discount in discounts:
                         if remaining_count >= discount.quantity:
