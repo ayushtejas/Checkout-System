@@ -27,7 +27,7 @@ Frontend:
 
 1. Clone this thing:
 ```bash
-git clone <repo-url>
+git clone https://github.com/ayushtejas/Checkout-System.git
 cd checkout-system
 ```
 
