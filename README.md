@@ -1,6 +1,6 @@
 # Checkout System
 
-A simple yet powerful checkout system that helps you manage products and apply discounts. 
+A simple yet powerful checkout system that helps you manage products and apply discounts.
 
 ## Tech Stack
 
@@ -13,7 +13,7 @@ We're using:
 
 1. Clone this repo:
 ```bash
-git clone <repository-url>
+git clone https://github.com/ayushtejas/Checkout-System.git
 cd checkout-system
 ```
 
